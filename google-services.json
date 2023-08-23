@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "957189665074",
+    "firebase_url": "https://upconsult-3cbc7-default-rtdb.firebaseio.com",
+    "project_id": "upconsult-3cbc7",
+    "storage_bucket": "upconsult-3cbc7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:957189665074:android:58e8ffcc3d5383d7d9272b",
+        "android_client_info": {
+          "package_name": "com.JGTtech.Upconsult"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "957189665074-vddbsglr1cnj2aob5mld056qa8jj83q3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDcVjVzEZi1cCwMR0v3aPtaGFnSVW9K01g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "957189665074-vddbsglr1cnj2aob5mld056qa8jj83q3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
