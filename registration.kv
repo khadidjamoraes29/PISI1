@@ -1,0 +1,425 @@
+
+# registration.kv
+
+<HomeScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        canvas.before:
+            Color:
+                rgba: 0.2, 0.2, 0.2, 1  # Cor de fundo (r, g, b, a)
+            Rectangle:
+                pos: self.pos
+                size: self.size
+        #Button:
+        #    text: 'Consultor'
+        #    on_press: root.goto_auth_screen('Consultor')
+        Button:
+            text: 'Empresa'
+            on_press: root.goto_auth_screen('Empresa')
+
+    MDFloatLayout:
+        md_bg_color: 1, 1, 1, 1
+        Image:
+            source: "images\\JGT_AZUL.png"
+            size_hint: .50, .50
+            pos_hint: {"center_x": .54, "center_y": .6}
+            canvas.before:
+                Color:
+                    rgb: 1, .85, .825, 1
+
+        MDLabel:
+            text: "Deslize para continuar"   
+            pos_hint: {"center_x": .5, "center_y": .21}       
+            halign: "center"
+            theme_text_color: "Custom"
+            text_color: 229/255, 199/255, 63/255, 1
+            font_size:"13sp"
+            font_name: "Poppins-Medium.ttf"
+
+
+<AuthScreen>:
+    MDFloatLayout:
+        md_bg_color: 0.070588, 0.070588, 0.462745, 1
+
+        Image:
+            source: "images\\usuario.png"
+            size_hint: .50, .50
+            pos_hint: {"center_x": .5, "center_y": .8}
+            canvas.before:
+                Color:
+                    rgb: 1, .85, .825, 1
+
+        MDLabel:
+            id: title_label
+            text: "Cadastro e Login"
+            size_hint: None, None
+            height: '40dp'
+            pos_hint: {'center_x': 0.5, "center_y": 0.7}
+            text_color: 1, 1, 1, 1
+            font_size: "20sp"
+            font_name: "Poppins-SemiBold.ttf"
+            theme_text_color: "Custom"
+            halign: 'center'
+
+        MDTextField:
+            id: username_input
+            pos_hint: {"center_x": 0.5, "center_y": 0.55}
+            hint_text: "Usuário"
+            size_hint_x: None
+            width: 250
+            line_color_normal: 0.945, 0.949, 0.949, 1.0
+            line_color_focus: 0.945, 0.949, 0.949, 1.0  # Define a cor de destaque para a mesma cor normal
+            helper_text: "Digite o nome de usuário no local"
+            helper_text_mode: "on_focus"
+            icon_right: "earth"
+            icon_right_color: 1, 0.5, 0, 1
+            required: True
+
+        MDTextField:
+            id: password_input
+            pos_hint: {"center_x": 0.5, "center_y": 0.45}
+            hint_text: "Senha"
+            size_hint_x: None
+            width: 250
+            line_color_normal: 0.945, 0.949, 0.949, 1.0
+            line_color_focus: 0.945, 0.949, 0.949, 1.0  # Define a cor de destaque para a mesma cor normal
+            helper_text: "Digite a senha de usuário no local"
+            helper_text_mode: "on_focus"
+            icon_right: "key"
+            icon_right_color: 1, 0.5, 0, 1
+            required: True
+
+        MDRaisedButton:
+            text: 'Cadastrar'
+            md_bg_color: 0.945, 0.949, 0.949, 1.0
+            theme_text_color: 'Custom'
+            size_hint: None, None
+            size: 300, '50dp'
+            pos_hint: {'center_x': 0.35, "center_y": 0.3}
+            text_color: 0, 0, 0, 1  # Cor preta
+            on_press: root.register()
+            size_hint: None, None
+            width: '150dp'          
+
+        MDRaisedButton:
+            text: 'Login'
+            md_bg_color: 0.945, 0.949, 0.949, 1.0
+            theme_text_color: 'Custom'
+            size_hint: None, None
+            size: 300, '50dp'
+            pos_hint: {'center_x': 0.65, "center_y": 0.3}
+            text_color: 0, 0, 0, 1  # Cor preta
+            on_press: root.login()
+            size_hint: None, None
+            width: '150dp'
+
+<ServicesScreen>:
+    MDFloatLayout:
+        canvas.before:
+            Color:
+                rgba: 1, 1, 1, 1  # Cor de fundo (r, g, b, a)
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        Image:
+            source: "images\\3.png"
+            size_hint: .50, .50
+            pos_hint: {"center_x": 0.25, "center_y": 0.15}
+            canvas.before:
+                Color:
+                    rgb: 1, .85, .825, 1
+
+        MDIconButton:
+            icon: "images\editar_perfil.png"
+            pos_hint: {'center_x': 0.2, 'center_y': 0.9}
+            on_press: root.go_to_perfil(self)
+            size_hint: None, None
+            size: 300, 200
+
+        MDLabel:
+            text: "Editar perfil"   
+            pos_hint: {"center_x": .35, "center_y": .9}       
+            halign: "center"
+            theme_text_color: "Custom"
+            text_color: 0.070588, 0.070588, 0.462745, 1
+            font_size:"13sp"
+            font_name: "Poppins-Regular.ttf"
+
+        MDLabel:
+            text: "Seja bem-vindo(a)"   
+            pos_hint: {"center_x": .5, "center_y": .8}       
+            halign: "center"
+            theme_text_color: "Custom"
+            text_color: 0.070588, 0.070588, 0.462745, 1
+            font_size:"25sp"
+            font_name: "Poppins-SemiBold.ttf"
+
+        MDLabel:
+            text: "Escolha o serviço que deseja:"   
+            pos_hint: {"center_x": .5, "center_y": .72}       
+            halign: "center"
+            theme_text_color: "Custom"
+            text_color: 0.070588, 0.070588, 0.462745, 1
+            font_size:"10sp"
+            font_name: "Poppins-Medium.ttf"
+
+        MDCard:
+            size_hint: None, None
+            size: "180dp", "50dp"
+            pos_hint: {'center_x': 0.5, 'center_y': 0.6}
+            radius: [15,]  # Define o raio dos cantos superiores esquerdo e direito
+            elevation: 1 # Define a elevação (sombra) do card
+            md_bg_color: 0.898, 0.780, 0.247, 1.0  # Cor de fundo (R, G, B, A)
+
+            MDIconButton:
+                icon: "images\solicitacao.png"
+                pos_hint: {'center_x': 0.5, 'center_y': 0.57}
+                on_press: root.go_to_solicitacao(self)
+                size_hint: None, None
+                size: 300, 200
+
+            MDLabel:
+                text: "Solicitações"   
+                pos_hint: {"center_x": .53, "center_y": .55}       
+                halign: "center"
+                theme_text_color: "Custom"
+                text_color: 0.070588, 0.070588, 0.462745, 1
+                font_size:"13sp"
+                font_name: "Poppins-Regular.ttf"
+
+        MDCard:
+            size_hint: None, None
+            size: "180dp", "50dp"
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+            radius: [15,]  # Define o raio dos cantos superiores esquerdo e direito
+            elevation: 1 # Define a elevação (sombra) do card
+            md_bg_color: 0.898, 0.780, 0.247, 1.0  # Cor de fundo (R, G, B, A)
+
+            MDIconButton:
+                icon: "calendar"
+                theme_text_color: "Custom"  
+                text_color: 0.070588, 0.070588, 0.462745, 1
+                pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                on_press: root.go_to_agendamento(self)
+                size_hint: None, None
+                size: 300, 200
+            
+            MDLabel:
+                text: "Agendamentos"   
+                pos_hint: {"center_x": .53, "center_y": .5}       
+                halign: "center"
+                theme_text_color: "Custom"
+                text_color: 0.070588, 0.070588, 0.462745, 1
+                font_size:"13sp"
+                font_name: "Poppins-Regular.ttf"
+
+        MDCard:
+            size_hint: None, None
+            size: "180dp", "50dp"
+            pos_hint: {'center_x': 0.5, 'center_y': 0.4}
+            radius: [15,]  # Define o raio dos cantos superiores esquerdo e direito
+            elevation: 1  # Define a elevação (sombra) do card
+            md_bg_color: 0.898, 0.780, 0.247, 1.0  # Cor de fundo (R, G, B, A)
+
+            MDIconButton:
+                icon: "images\procurar.png"
+                pos_hint: {'center_x': 0.5, 'center_y': 0.46}
+                on_press: root.go_to_procurar(self)
+                size_hint: None, None
+                size: 300, 200
+
+            MDLabel:
+                text: "Procurar Consultores"   
+                pos_hint: {"center_x": .53, "center_y": .46}       
+                halign: "center"
+                theme_text_color: "Custom"
+                text_color: 0.070588, 0.070588, 0.462745, 1
+                font_size:"13sp"
+                font_name: "Poppins-Regular.ttf"
+
+<SolicitacaoScreen>:
+    MDFloatLayout:
+        canvas.before:
+            Color:
+                rgba: 1, 1, 1, 1  # Cor de fundo (r, g, b, a)
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        Image:
+            source: "images\\4.png"
+            size_hint: .50, .50
+            pos_hint: {"center_x": 0.5, "center_y": 0.15}
+            canvas.before:
+                Color:
+                    rgb: 1, .85, .825, 1
+
+        MDLabel:
+            text: "Realize sua solicitação"   
+            pos_hint: {"center_x": .5, "center_y": .85}       
+            halign: "center"
+            theme_text_color: "Custom"
+            text_color: 0.070588, 0.070588, 0.462745, 1
+            font_size:"16sp"
+            font_name: "Poppins-SemiBold.ttf"
+
+        MDTextField:
+            id: tipo_consultoria
+            pos_hint: {"center_x": 0.5, "center_y": 0.7}
+            hint_text: "Tipo de Consultoria"
+            size_hint_x: None
+            width: 250
+            line_color_normal: 0.945, 0.949, 0.949, 1.0
+            line_color_focus: 0.945, 0.949, 0.949, 1.0  # Define a cor de destaque para a mesma cor normal
+            helper_text: "Digite a área do local"
+            helper_text_mode: "on_focus"
+            icon_right: "earth"
+            icon_right_color: 1, 0.5, 0, 1
+            required: True
+
+        MDTextField:
+            id: descricao
+            pos_hint: {"center_x": 0.5, "center_y": 0.6}
+            hint_text: "Descrição Resumida"
+            size_hint_x: None
+            width: 250
+            line_color_normal: 0.945, 0.949, 0.949, 1.0
+            line_color_focus: 0.945, 0.949, 0.949, 1.0  # Define a cor de destaque para a mesma cor normal
+            helper_text: "Digite a área do local"
+            helper_text_mode: "on_focus"
+            icon_right: "pen"
+            icon_right_color: 1, 0.5, 0, 1
+            required: True
+        
+        MDTextField:
+            id: data_agendamento
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+            hint_text: "Enviar Solicitação"
+            size_hint_x: None
+            width: 250
+            line_color_normal: 0.945, 0.949, 0.949, 1.0
+            line_color_focus: 0.945, 0.949, 0.949, 1.0  # Define a cor de destaque para a mesma cor normal
+            helper_text: "Digite a área do local"
+            helper_text_mode: "on_focus"
+            icon_right: "calendar"
+            icon_right_color: 1, 0.5, 0, 1
+            required: True
+
+        MDIconButton:
+            icon: "arrow-left"
+            theme_text_color: "Custom" 
+            text_color: 0.070588, 0.070588, 0.462745, 1
+            pos_hint: {'center_x': 0.15, 'center_y': 0.93}
+            on_press: app.root.get_screen('services').go_to_services(self)
+            size_hint: None, None
+            size: 300, 200
+
+        MDRaisedButton:
+            text: 'Enviar Solicitação'
+            md_bg_color: 0.070588, 0.070588, 0.462745, 1
+            theme_text_color: 'Custom'
+            size_hint: None, None
+            size: 300, '50dp'
+            pos_hint: {'center_x': 0.5, "center_y": 0.38}
+            text_color: 1, 1, 1, 1  
+            on_press: app.root.get_screen('services').go_to_services(self)
+            size_hint: None, None
+            width: '150dp'
+        
+
+<AgendamentoScreen>:
+    MDFloatLayout:
+        canvas.before:
+            Color:
+                rgba: 1, 1, 1, 1  # Cor de fundo (r, g, b, a)
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        MDLabel:
+            id: tipo_consultoria_label
+            text: "Tipo de Consultoria: {root.tipo_consultoria}"   
+            pos_hint: {"center_x": .5, "center_y": .6}       
+            halign: "center"
+            theme_text_color: "Custom"
+            text_color: 0.070588, 0.070588, 0.462745, 1
+            font_size:"16sp"
+            font_name: "Poppins-SemiBold.ttf"
+
+        MDLabel:
+            id: descricao_label
+            text: "Descrição: {root.descricao}"   
+            pos_hint: {"center_x": .5, "center_y": .5}       
+            halign: "center"
+            theme_text_color: "Custom"
+            text_color: 0.070588, 0.070588, 0.462745, 1
+            font_size:"16sp"
+            font_name: "Poppins-SemiBold.ttf"
+
+        MDLabel:
+            id: data_agendamento_label
+            text: "Data de Agendamento: {root.data_agendamento}"   
+            pos_hint: {"center_x": .5, "center_y": .4}       
+            halign: "center"
+            theme_text_color: "Custom"
+            text_color: 0.070588, 0.070588, 0.462745, 1
+            font_size:"16sp"
+            font_name: "Poppins-SemiBold.ttf"
+
+        MDIconButton:
+            icon: "arrow-left"
+            theme_text_color: "Custom" 
+            text_color: 0.070588, 0.070588, 0.462745, 1
+            pos_hint: {'center_x': 0.2, 'center_y': 0.93}
+            on_press: app.root.get_screen('services').go_to_services(self)
+            size_hint: None, None
+            size: 300, 200
+
+<ProcurarScreen>:
+    MDFloatLayout:
+        canvas.before:
+            Color:
+                rgba: 1, 1, 1, 1  # Cor de fundo (r, g, b, a)
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        MDLabel:
+            id: consultor_label
+            text: "Consultor" 
+            pos_hint: {"center_x": .5, "center_y": .6}       
+            halign: "center"
+            theme_text_color: "Custom"
+            text_color: 0.070588, 0.070588, 0.462745, 1
+            font_size: "16sp"
+            font_name: "Poppins-SemiBold.ttf"
+
+        MDLabel:
+            id: telefoneConsultor_label
+            text: "Telefone do Consultor" 
+            pos_hint: {"center_x": .5, "center_y": .5}       
+            halign: "center"
+            theme_text_color: "Custom"
+            text_color: 0.070588, 0.070588, 0.462745, 1
+            font_size: "16sp"
+            font_name: "Poppins-SemiBold.ttf"
+
+        MDLabel:
+            id: enderecoConsultor_label
+            text: "Endereço do Consultor"
+            pos_hint: {"center_x": .5, "center_y": .4}       
+            halign: "center"
+            theme_text_color: "Custom"
+            text_color: 0.070588, 0.070588, 0.462745, 1
+            font_size: "16sp"
+            font_name: "Poppins-SemiBold.ttf"
+
+        MDIconButton:
+            icon: "arrow-left"
+            theme_text_color: "Custom" 
+            text_color: 0.070588, 0.070588, 0.462745, 1
+            pos_hint: {'center_x': 0.2, 'center_y': 0.93}
+            on_press: app.root.get_screen('services').go_to_services(self)
+            size_hint: None, None
+            size: 300, 200
